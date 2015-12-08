@@ -1,0 +1,10 @@
+dns-resolution: yes
+port-resolution: yes
+show-bars: yes
+port-display: on
+link-local: yes
+use-bytes: yes
+sort: 10s
+line-display: one-line-both
+show-totals: yes
+log-scale: yes
