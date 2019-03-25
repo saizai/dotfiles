@@ -1,0 +1,9 @@
+---
+:backtrace: true
+:bulk_threshold: 100
+:sources:
+- https://rubygems.org/
+:update_sources: true
+:verbose: true
+:custom_shebang: $env ruby_bundler_wrapper
+gem: --no-rdoc --no-ri --no-document --suggestions --post-install-message --wrappers -- --with-mysql-config=/usr/local/mysql/bin/mysql_config

@@ -1,3 +1,16 @@
+# # Order; if ZDOTDIR is unset, HOME is used instead:
+# 1. /etc/zshenv
+# 2. $ZDOTDIR/.zshenv
+# 3. (login) /etc/zprofile
+# 4. (login) $ZDOTDIR/.zprofile
+# 5. (interactive) /etc/zshrc
+# 6. (interactive) $ZDOTDIR/.zshrc
+# 7. (login) /etc/zlogin
+# 8. (login) $ZDOTDIR/.zlogin
+# [logout]
+# 1. $ZDOTDIR/.zlogout
+# 2. /etc/zlogout
+
 # export SSH_ASKPASS="/usr/libexec/ssh-askpass"
 
 # if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
@@ -6,6 +19,10 @@
 
 # HOSTNAME=`hostname`
 export HOSTNAME="Sail"
+
+# To add: security add-generic-password -a "$USER" -s 'Homebrew GitHub Token' -w  # either token goes here, or leave blank and get security prompt
+# export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -s 'Homebrew GitHub Token' -w)
+# OSX only.
 
 export HAKIRI_AUTH_TOKEN=$(security find-generic-password -s 'Hakiri Auth Token' -w)
 export MUCKROCK_TOKEN=$(security find-generic-password -s 'Muckrock Auth Token' -w)
@@ -40,6 +57,10 @@ export PATH="/Users/saizai/Downloads/apps/android/platform-tools/:$PATH"
 # /Users/saizai/Dropbox/android/sdk/tools:/Users/saizai/Dropbox/android/sdk/platform-tools
 # export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/saizai/src/google-cloud-sdk/path.bash.inc' ]; then . '/Users/saizai/src/google-cloud-sdk/path.bash.inc'; fi
 # source /Users/saizai/src/google-cloud-sdk/path.bash.inc
@@ -48,5 +69,3 @@ if [ -f '/Users/saizai/src/google-cloud-sdk/path.bash.inc' ]; then . '/Users/sai
 # export PATH="/Users/saizai/.rvm/gems/default/bin:$PATH"
 
 # if [ -f ~/.bashrc ]; then source ~/.bashrc ; fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
